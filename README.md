@@ -2,58 +2,80 @@ Shelly Advanced Motion Lighting with
 WLED Integration Release Version: 1.35.
 
 Project Goal & Origin Story
+
 While waiting for Shelly to release a new Wi-Fi based motion sensor, I wanted to see if I could
 use older-generation technology (the original Shelly Motion sensors) combined with
-new-generation software (Shelly Plus/Pro scripting) to iron out the bugs in our corridor lighting
-that have frustrated us over the years of operation.
+new-generation software (Shelly Plus/Pro scripting) to iron out the bugs in our corridor lighting that have frustrated us over the years of operation.
+
 The primary goals were to:
+
 ● Make the original Shelly Motion sensors smarter.
+
 ● Prevent unwanted light turn-offs and state flickering.
+
 ● Implement a "cleaning mode" manual override.
+
 ● Apply custom brightness based on time of day and occupancy.
+
 ● Synchronize a WLED strip with the dimmer's state and allow for seasonal palettes and
 effects.
+
 ● Allow for easy configuration to create the perfect lighting scene with smooth, adaptive
 transitions.
+
 Here is the end result: a highly customizable script that achieves all of these goals.
+
 Key Features
-● 🧠 Hybrid Adaptive Brightness: Automatically selects different brightness rules for
+
+● 🧠 Hybrid Adaptive Brightness: 
+Automatically selects different brightness rules for
 AM, PM, and Night periods. Within those periods, the brightness intelligently increases
 with more frequent motion.
-● 👀 True Multi-Sensor Hold: Supports multiple motion sensors and will only turn the
-lights off after all sensors have been clear for a configurable "grace period."
+
+● 👀 True Multi-Sensor Hold: 
+
+Supports multiple motion sensors and will only turn the lights off after all sensors have been clear for a configurable "grace period."
+
 ● 👆 Smart Manual Overrides:
+
 ○ Single Press: Toggles the light on to its last brightness or off. A single press also
 cancels any active manual hold.
+
 ○ Double Press: Instantly sets the light to 100% and activates a 30-minute
 manual hold, disabling motion sensors. A second double-press will restart the
 30-minute timer.
+
 ○ Long Press: Smoothly dims the light up and down.
-● 💡 UI Motion Control: A Virtual Boolean switch is used to enable or disable motion
-detection directly from the Shelly App UI, without ever having to stop the script or disable
-the sensors themselves.
-● 🎬 Synchronized & Advanced WLED Control: The WLED strip can be set to turn on
-to a default solid color, or trigger a specific Effect, Preset, or Playlist on motion.
-● ⚙️ Optional WLED Integration: Control of the WLED strip and its power supply can be
-completely disabled with a single setting, allowing the script to be used in a dimmer-only
-setup.
+
+● 💡 UI Motion Control: 
+A Virtual Boolean switch is used to enable or disable motion detection directly from the Shelly App UI, without ever having to stop the script or disable the sensors themselves.
+
+● 🎬 Synchronized & Advanced WLED Control: 
+The WLED strip can be set to turn on to a default solid color, or trigger a specific Effect, Preset, or Playlist on motion.
+● ⚙️ Optional WLED Integration: 
+Control of the WLED strip and its power supply can be completely disabled with a single setting, allowing the script to be used in a dimmer-only setup.
 
 Hardware Compatibility
+
 ● Primary Device: A Shelly Plus/Pro device capable of running scripts (e.g., Shelly Pro
 Dimmer 1/2 PM, Plus 0-10V Dimmer, Pro/Plus RGBW/DALI controllers).
+
 ● Sensors: One or more motion sensors that can call a URL. The original Shelly Motion
 was used for development, but any model (e.g., Shelly Motion 2) or other brands will
 work.
+
 ● (Optional) WLED: A WLED-controlled light strip and a Shelly Plug/Relay for its power
-supply.
+supply..
+
 Installation & Configuration Guide
+
 1. Shelly Device Configuration
-1. Navigate to your primary Shelly device's settings.
-2. Set Button type to One button dimming control. This ensures failsafe manual
+2.  Navigate to your primary Shelly device's settings.
+3. Set Button type to One button dimming control. This ensures failsafe manual
 control.
-3. Crucially: Disable all native Schedules, Timers, and Scenes on the Shelly device to
+4. Crucially: Disable all native Schedules, Timers, and Scenes on the Shelly device to
 prevent them from interfering with the script's logic.
-4. Important: Ensure all button Action URLs are empty. The script handles button events
+5. Important: Ensure all button Action URLs are empty. The script handles button events
 internally.
 2. Script Installation & Configuration
 1. Copy the entire V1.35.0 script below. https://pastebin.com/DtkVvvLL
@@ -74,9 +96,12 @@ primary device's UI that are triggered by the BLU sensor's motion events. Use th
 URLs from the script's log in these actions. For more details, see the Official Shelly
 KB Article.
 
-The CONFIG Object Explained
+The CONFIG Object Explained.
+
 WLED & PSU Settings (WLED_CONFIG)
+
 This entire section is optional. Set ENABLED: false to run the script in dimmer-only mode.
+
 Javascript
 WLED_CONFIG: {
 ENABLED: true, // Set to false to disable all WLED &
@@ -102,8 +127,11 @@ strips.
 },
 
 Adaptive Brightness (HYBRID_ADAPTIVE)
-This is where you define the core "smart" behavior.
+
+This is where you define the core "smart" behavior..
+
 Javascript
+
 NIGHT_ADAPTIVE_DISABLED: false, // If true, uses a single brightness
 at night.
 AM_PERIOD: {
