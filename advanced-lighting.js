@@ -1,13 +1,5 @@
 
-Gemini
-how can i easily combine thes into 1 slide
-You can combine items into one slide in Google Slides in a few ways:
-Adding and Arranging Objects: You can add text, images, shapes, and lines to a slide and then arrange them by dragging and resizing.You can also group multiple objects together to move and resize them as a single unit.
-Copy and Paste: You can copy content from other apps and paste it directly into your Google Slides presentation.
-Importing Content: There are tools and add - ons available in the Google Workspace Marketplace, like "Slides Toolbox," that can help you import content from Google Drive, Docs, and other sources to create slides.
-Would you like more details on any of these methods ?
-    Gemini in Workspace can make mistakes, so double - check responses.Learn more
-/************************************************************
+************************************************************
  * Shelly Advanced Motion Lighting with WLED Integration
  * Version: 1.35.0
  *
